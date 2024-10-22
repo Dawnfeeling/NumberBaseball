@@ -65,7 +65,7 @@ public class BaseballGame {
 
             // 입력한 값에 대한 예외처리
             if(validateInput(str)){
-                int temp = Integer.parseInt(str);
+                int temp = Integer.parseInt(str);  //입력받은 값을 int로 변환 후 컬렉션에 추가
                 setinputnum(temp);
             }else{
                 System.out.println("올바르지 않은 입력값입니다.");

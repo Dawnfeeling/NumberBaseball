@@ -29,7 +29,7 @@ public class Main {
                 list.add(count);
                 System.out.println(count + "번의 시도 끝에 정답을 맞혔습니다!");
             }
-            //게임 기록
+            //게임 기록 출력
             else if (choice == 2) {
                 for(int i=0; i<list.size(); i++) {
                     System.out.println((i+1) + "번째 게임 : 시도 횟수 - " + list.get(i));
