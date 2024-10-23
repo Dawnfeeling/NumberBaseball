@@ -4,15 +4,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class BaseballGame {
     Scanner sc = new Scanner(System.in);
     Random random = new Random();
 
+    Validation validation = new Validation();
     ArrayList<Integer> inputNum = new ArrayList<>();  //사용자부터 입력 받은 수를 저장하는 컬렉션
     ArrayList<Integer> resultNum= new ArrayList<>();  //정답이 들어있는 컬렉션
-    private static final String NUMBER_REG = "^[0-9]*$";  //정수 정규화식 변수
     int strike;  //스트라이크 횟수
     int ball;  //볼 횟수
     int count = 0;  //게임 반복 횟수
@@ -66,11 +65,12 @@ public class BaseballGame {
 //            }
 
             // 입력한 값에 대한 예외처리
-            if(validateInput(str)){
+            try{
+                validation.validateInput(str, resultNum.size());
                 int temp = Integer.parseInt(str);  //입력받은 값을 int로 변환 후 컬렉션에 추가
                 setinputnum(temp);
-            }else{
-                System.out.println("올바르지 않은 입력값입니다.");
+            }catch (Exception e){
+                System.out.println(e.getMessage());
                 continue;
             }
 
@@ -113,35 +113,5 @@ public class BaseballGame {
             }
         }
         return ball;
-    }
-
-    //입력받은 값의 오류를 검사하는 메소드
-    protected boolean validateInput(String inputNum){
-        //문자를 입력했을때 오류
-        for(String c : inputNum.split("")){
-            if(!Pattern.matches(NUMBER_REG, c)){
-                return false;
-            }
-        }
-
-        //자리수가 다를때 오류
-        if(inputNum.length() != resultNum.size()){
-            return false;
-        }
-
-        //0이 포함되어 있을때 오류
-        if(inputNum.contains("0")){
-            return false;
-        }
-
-        //중복값이 있을때 오류
-        StringBuilder str = new StringBuilder(inputNum);
-        for(String c : inputNum.split("")){
-            str.deleteCharAt(str.indexOf(c));
-            if(str.indexOf(c) != -1){
-                return false;
-            }
-        }
-        return true;
     }
 }
