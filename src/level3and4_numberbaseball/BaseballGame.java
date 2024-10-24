@@ -25,9 +25,9 @@ public class BaseballGame {
     //정답을 랜덤하게 생성하는 메소드
     public void setresultNum(int level) {
         while (resultNum.size() < level) {
-            int num = random.nextInt(9) + 1;  //1~9중 랜덤하게 숫자 생성
-            if (!resultNum.contains(num)) {
-                resultNum.add(num);
+            int randnum = random.nextInt(9) + 1;  //1~9중 랜덤하게 숫자 생성
+            if (!resultNum.contains(randnum)) {
+                resultNum.add(randnum);
             }
         }
     }

@@ -20,35 +20,28 @@ public class Main {
 
             //난이도 변경
             if (choice == 0) {
-                System.out.println("설정하고자 하는 자리수를 입력하세요.");
+                System.out.println("설정하고자 하는 자리수를 입력하세요.(3~5)");
                 level = sc.nextInt();
                 if (level != 3 && level != 4 && level != 5) {
                     System.out.println("레벨은 3, 4, 5 단계가 존재합니다");
                 }
-            }
-            //게임 시작
-            else if (choice == 1) {
+                System.out.println(level + "자리수로 설정되었습니다");
+            } else if (choice == 1) {   //게임 시작
                 BaseballGame game = new BaseballGame(level);  //게임을 시작할 때 객체 새로 생성
                 count = game.play();
                 list.add(count);
                 System.out.println(count + "번의 시도 끝에 정답을 맞혔습니다!");
-            }
-            //게임 기록 출력
-            else if (choice == 2) {
+            } else if (choice == 2) {  //게임 기록 출력
                 for (int i = 0; i < list.size(); i++) {
                     System.out.println((i + 1) + "번째 게임 : 시도 횟수 - " + list.get(i));
                 }
                 if (list.isEmpty()) {
                     System.out.println("현재 게임 기록이 없습니다.");
                 }
-            }
-            //게임 종료
-            else if (choice == 3) {
+            } else if (choice == 3) {  //게임 종료
                 System.out.println("< 숫자 야구 게임을 종료합니다 >");
                 break;
-            }
-            //입력 오류
-            else {
+            } else {  //입력 오류
                 System.out.println("올바른 숫자를 입력해주세요!");
             }
         }

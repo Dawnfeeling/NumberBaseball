@@ -26,7 +26,7 @@ public class Validation {
         //중복값이 있을때 오류
         StringBuilder str = new StringBuilder(inputNum);
         for (String c : inputNum.split("")) {
-            str.deleteCharAt(str.indexOf(c));
+            str.deleteCharAt(str.indexOf(c));  //첫 문자를 삭제한 후 삭제한 문자와 같은 값이 있는지 비교
             if (str.indexOf(c) != -1) {
                 throw new BadInputException();
             }
