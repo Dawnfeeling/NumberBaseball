@@ -41,12 +41,11 @@ public class Main {
             } else if (choice == 2) {  //게임 기록 출력
                 for (int i = 0; i < list.size(); i++) {
                     System.out.println((i + 1) + "번째 게임 : 시도 횟수 - " + list.get(i));
-                    System.out.println("--------------------------------------------------------");
                 }
                 if (list.isEmpty()) {
                     System.out.println("현재 게임 기록이 없습니다.");
-                    System.out.println("--------------------------------------------------------");
                 }
+                System.out.println("--------------------------------------------------------");
             } else if (choice == 3) {  //게임 종료
                 System.out.println("< 숫자 야구 게임을 종료합니다 >");
                 break;
