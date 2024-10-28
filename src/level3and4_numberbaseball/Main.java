@@ -25,8 +25,7 @@ public class Main {
                 level = sc.nextInt();
                 if (level != 3 && level != 4 && level != 5) {
                     System.out.println("레벨은 3, 4, 5 단계가 존재합니다.");
-                }
-                else {
+                } else {
                     System.out.println(level + "자리수 난이도로 설정되었습니다.");
                     System.out.println();
                 }

@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 public class Validation {
     private static final String NUMBER_REG = "^[0-9]*$";  //정수 정규화식 변수
 
-    protected void validateInput(String inputNum, int length) throws Exception {
+    protected void validateInput(String inputNum, int length) throws BadInputException {
         //문자를 입력했을때 오류
         for (String c : inputNum.split("")) {
             if (!Pattern.matches(NUMBER_REG, c)) {

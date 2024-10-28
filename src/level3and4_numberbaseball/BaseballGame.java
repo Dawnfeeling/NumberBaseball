@@ -19,11 +19,11 @@ public class BaseballGame {
 
     //객체 생성시 정답 생성
     public BaseballGame(int level) {
-        setresultNum(level);
+        setResultNum(level);
     }
 
     //정답을 랜덤하게 생성하는 메소드
-    public void setresultNum(int level) {
+    public void setResultNum(int level) {
         while (resultNum.size() < level) {
             int randnum = random.nextInt(9) + 1;  //1~9중 랜덤하게 숫자 생성
             if (!resultNum.contains(randnum)) {
@@ -32,16 +32,8 @@ public class BaseballGame {
         }
     }
 
-    //정답을 조회하는 메소드
-    public void getresultNum() {
-        for (int num : resultNum) {
-            System.out.print(num);
-        }
-        System.out.println();
-    }
-
     //사용자부터 입력받은 값을 배열에 담는 메소드
-    public void setinputnum(int inputNum) {
+    public void setInputNum(int inputNum) {
         //일의자리부터 배열에 추가
         while (inputNum > 0) {
             this.inputNum.add(inputNum % 10);
@@ -59,16 +51,11 @@ public class BaseballGame {
             System.out.println("숫자를 입력하세요");
             String str = sc.nextLine();
 
-//            //정답 조회용
-//            if(str.equals("root")){
-//                getresultNum();
-//            }
-
             // 입력한 값에 대한 예외처리
             try {
                 validation.validateInput(str, resultNum.size());
                 int temp = Integer.parseInt(str);  //입력받은 값을 int로 변환 후 컬렉션에 추가
-                setinputnum(temp);
+                setInputNum(temp);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
                 continue;
